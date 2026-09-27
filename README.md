@@ -45,14 +45,14 @@
 
 ## Overview
 
-**AVCORP** is an annotated dataset of 1,000 LLM-generated discussion logs from 250 five-player *The Resistance: Avalon* games, where each of the 3,900 contextual-agent utterances is labeled with one of 37 deception or cooperation tactics from a theory-grounded 4×4 behavior matrix (IDT, TDT, IMT2), verified by a blind LLM judge, and augmented with Theory of Mind reasoning traces.
+**AVCORP** is an annotated dataset of 4,000 LLM-generated utterances from 250 five-player *The Resistance: Avalon* games, where each of the 3,900 contextual-agent utterances is labeled with one of 37 deception or cooperation tactics from a theory-grounded 4×4 behavior matrix (IDT, TDT, IMT2), verified by a blind LLM judge, and augmented with Theory of Mind reasoning traces.
 
 **At a glance**
 
 - **Layer 1, what is said:** every utterance carries one of 37 tactics. Rows of the matrix give the information strategy (IMT2 and philosophy of lying); columns give the social goal (IDT and TDT).
 - **Layer 2, why it is said:** each investigator turn has a gold reasoning trace with abductive hypotheses, suspicion levels, first- and second-order beliefs, and a final deduction.
 - **Built in six stages:** roles and public histories are fixed first, then dialogues and traces are generated and checked by a blind LLM judge, round by round.
-- **Useful for training:** a Qwen3-8B detector trained with SFT and then GRPO names both Evil players in 23 of 25 held-out games, matching the gold traces.
+- **Useful for training:** a Qwen3-8B detector trained with SFT and then GRPO names both Evil players in 23 of 25 held-out games **(92%)**, matching the gold traces.
 
 ---
 
@@ -158,7 +158,7 @@ S3_log-gen-summarizer.ipynb  →  generates AVCORP/Datasets/summarizer/summaries
 > Summaries are built from the *verified* dialogue, so `S3_log-gen-summarizer.ipynb` must run after Stage 4 for each round.
 
 <details>
-<summary><b>Game setup</b> (click to expand)</summary>
+<summary><b>Game setup with Reasoning Traces</b> (click to expand)</summary>
 <br>
 <p align="center"><img src="assets/Avalon-setup.jpg" alt="Avalon game setup" width="90%"></p>
 </details>
