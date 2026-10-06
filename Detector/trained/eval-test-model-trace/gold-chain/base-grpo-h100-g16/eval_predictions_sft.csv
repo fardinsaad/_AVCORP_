@@ -1,0 +1,48 @@
+game_id,round_id,role_id,predicted,ground_truth,parsed,output,chain_mode,chain_rounds,prompt_tokens,gen_tokens,hit_max_new_tokens,seconds
+G015,1,P1,P2,P2 P4,True,"{
+  ""abduction"": [
+    {""player"": ""P2"", ""good_expl"": ""P2 is genuinely surprised by the failed quest and blames P1."", ""evil_expl"": ""P2 is trying to frame P1 to look innocent and shift suspicion."", ""choice"": ""Evil""},
+    {""player"": ""P3"", ""good_expl"": ""P3 is cautious and suggests not trusting P2 immediately."", ""evil_expl"": ""P3 is using uncertainty to avoid taking a clear stance."", ""choice"": ""Good""},
+    {""player"": ""P4"", ""good_expl"": ""P4 wants to avoid conflict and focus on testing new players."", ""evil_expl"": ""P4 is trying to dilute the discussion and avoid scrutiny."", ""choice"": ""Good""},
+    {""player"": ""P5"", ""good_expl"": ""P5 is skeptical of P2's strong reaction and sees it as suspicious."", ""evil_expl"": ""P5 is trying to appear reasonable while hiding their own agenda."", ""choice"": ""Good""}
+  ],
+  ""suspicion"": [
+    {""player"": ""P2"", ""level"": ""Strong"", ""reason"": ""P2 was on the failed 2-player quest with P1, and their immediate accusation of P1 is suspicious.""},
+    {""player"": ""P3"", ""level"": ""Mild"", ""reason"": ""P3's comment is cautious but not strongly suspicious.""},
+    {""player"": ""P4"", ""level"": ""Mild"", ""reason"": ""P4's suggestion to test new players is neutral but could be evasive.""},
+    {""player"": ""P5"", ""level"": ""Mild"", ""reason"": ""P5's skepticism is reasonable but not conclusive.""}
+  ],
+  ""depth"": 2,
+  ""beliefs"": [
+    {""level"": 1, ""player"": ""P2"", ""content"": ""P2 is likely the culprit because the failed quest with P1 makes P2 the only other player on the team.""},
+    {""level"": 1, ""player"": ""P3"", ""content"": ""P3 is probably Good and is trying to keep the discussion balanced.""},
+    {""level"": 1, ""player"": ""P4"", ""content"": ""P4 is probably Good and is avoiding direct accusations.""},
+    {""level"": 1, ""player"": ""P5"", ""content"": ""P5 is probably Good and is reacting to P2's strong statement.""},
+    {""level"": 2, ""player"": ""P2"", ""content"": ""P2 is Evil and used the failed quest to frame P1 and shift suspicion away from themselves.""}
+  ],
+  ""statement"": ""Quest 1 failed on a 2-player team, so one of us is Evil. P2 was on that team and immediately blamed P1, which is suspicious. I think P2 is the likely culprit."",
+  ""deduction"": [""P2""]
+}",gold,,538,617,False,36.7
+G028,1,P1,P2,P2 P3,True,"{
+  ""abduction"": [
+    {""player"": ""P2"", ""good_expl"": ""I played a pass and the mission failed, so I have no way to know who is guilty."", ""evil_expl"": ""I played a pass and the mission failed, so I can claim uncertainty to avoid scrutiny."", ""choice"": ""Good""},
+    {""player"": ""P5"", ""good_expl"": ""The fail came from one of the two players, so I'm trying to keep the discussion open."", ""evil_expl"": ""I'm trying to keep the discussion open to avoid narrowing down the real spy."", ""choice"": ""Good""},
+    {""player"": ""P4"", ""good_expl"": ""I want to avoid over-relying on the failed 2-player team and look at the rest of the players."", ""evil_expl"": ""I want to push the discussion away from the failed 2-player team and onto the rest of the players."", ""choice"": ""Good""},
+    {""player"": ""P3"", ""good_expl"": ""I think we should keep the failed 2-player team in mind and not just move on."", ""evil_expl"": ""I think we should keep the failed 2-player team in mind and not just move on."", ""choice"": ""Good""}
+  ],
+  ""suspicion"": [
+    {""player"": ""P2"", ""level"": ""Mild"", ""reason"": ""P2 played a pass and claimed uncertainty, which is plausible for a Good player but could also be a cover.""},
+    {""player"": ""P5"", ""level"": ""Mild"", ""reason"": ""P5's statement is neutral and doesn't strongly point to anyone.""},
+    {""player"": ""P4"", ""level"": ""Mild"", ""reason"": ""P4's suggestion to rotate everyone out is a common Good strategy, but it could also be a way to avoid scrutiny.""},
+    {""player"": ""P3"", ""level"": ""Mild"", ""reason"": ""P3's statement is reasonable and doesn't strongly point to anyone.""}
+  ],
+  ""depth"": 1,
+  ""beliefs"": [
+    {""level"": 1, ""player"": ""P2"", ""content"": ""P2 is likely Good because he played a pass and the mission failed.""},
+    {""level"": 1, ""player"": ""P5"", ""content"": ""P5 is likely Good because his statement is neutral and doesn't strongly point to anyone.""},
+    {""level"": 1, ""player"": ""P4"", ""content"": ""P4 is likely Good because his suggestion to rotate everyone out is a common Good strategy.""},
+    {""level"": 1, ""player"": ""P3"", ""content"": ""P3 is likely Good because his statement is reasonable and doesn't strongly point to anyone.""}
+  ],
+  ""statement"": ""I played a pass and the mission failed, so I have no way to know who is guilty. I think we should keep the failed 2-player team in mind and not just move on."",
+  ""deduction"": [""P2""]
+}",gold,,651,644,False,38.0

@@ -1,0 +1,9 @@
+# Env files, caches and notebook checkpoints are covered by the root .gitignore.
+
+# Model weights and checkpoints (too large for GitHub)
+trained/*/grpo-qwen3-avalon/
+trained/*/sft-warmup/
+
+# Logs and workbook backups
+*.log
+results/Legacy/

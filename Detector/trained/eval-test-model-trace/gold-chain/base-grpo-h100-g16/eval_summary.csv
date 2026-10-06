@@ -1,0 +1,4 @@
+stage,n,parse_failures,precision,recall,f1,macro_f1,games,game_exact_match,game_exact_count,game_hit_count,game_f1,f1_R1,hit_max_new_tokens,run,run_folder,chain,gpu,seconds_this_session
+base,2,0,0.0,0.0,0.0,0.0,2,0.0,0,0,0.0,0.0,0,run4_1,base-grpo-h100-g16,gold,NVIDIA H100 PCIe,54.0
+sft,2,0,1.0,0.5,0.6666666666666666,0.6666666666666666,2,0.0,0,2,0.6666666666666666,0.6666666666666666,0,run4_1,base-grpo-h100-g16,gold,NVIDIA H100 PCIe,74.8
+grpo,2,0,0.5,1.0,0.6666666666666666,0.6666666666666666,2,0.0,0,2,0.6666666666666666,0.6666666666666666,0,run4_1,base-grpo-h100-g16,gold,NVIDIA H100 PCIe,67.2

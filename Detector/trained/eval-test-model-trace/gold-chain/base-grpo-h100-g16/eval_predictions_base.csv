@@ -1,0 +1,161 @@
+game_id,round_id,role_id,predicted,ground_truth,parsed,output,chain_mode,chain_rounds,prompt_tokens,gen_tokens,hit_max_new_tokens,seconds
+G015,1,P1,,P2 P4,True,"{
+  ""abduction"": [
+    {
+      ""player"": ""P2"",
+      ""good_expl"": ""P2 could be trying to deflect blame to P1, who might be innocent."",
+      ""evil_expl"": ""P2 might be trying to frame P1 to cover up their own involvement in the failed quest."",
+      ""choice"": ""Good""
+    },
+    {
+      ""player"": ""P3"",
+      ""good_expl"": ""P3 is questioning P2's credibility, which aligns with a Good player's cautious nature."",
+      ""evil_expl"": ""P3 might be trying to sow doubt among the group to manipulate the outcome."",
+      ""choice"": ""Good""
+    },
+    {
+      ""player"": ""P4"",
+      ""good_expl"": ""P4 is advocating for testing new players, which is a neutral and constructive approach."",
+      ""evil_expl"": ""P4 might be trying to avoid taking responsibility for the failed quest."",
+      ""choice"": ""Good""
+    },
+    {
+      ""player"": ""P5"",
+      ""good_expl"": ""P5 is questioning P2's reaction, which shows a healthy level of skepticism."",
+      ""evil_expl"": ""P5 might be trying to create division among the group to benefit their own agenda."",
+      ""choice"": ""Good""
+    }
+  ],
+  ""suspicion"": [
+    {
+      ""player"": ""P2"",
+      ""level"": ""Strong"",
+      ""reason"": ""P2 immediately blamed P1 for the failed quest, which could indicate guilt or a desire to deflect blame.""
+    },
+    {
+      ""player"": ""P3"",
+      ""level"": ""Mild"",
+      ""reason"": ""P3 questioned P2's credibility, which could be a sign of suspicion or a strategic move.""
+    },
+    {
+      ""player"": ""P4"",
+      ""level"": ""Minimal"",
+      ""reason"": ""P4's statement was neutral and focused on future actions, which doesn't indicate strong suspicion.""
+    },
+    {
+      ""player"": ""P5"",
+      ""level"": ""Moderate"",
+      ""reason"": ""P5 questioned P2's reaction, suggesting they might be hiding something.""
+    }
+  ],
+  ""depth"": 2,
+  ""beliefs"": [
+    {
+      ""level"": 1,
+      ""player"": ""P2"",
+      ""content"": ""P2 may be trying to shift blame to P1.""
+    },
+    {
+      ""level"": 1,
+      ""player"": ""P3"",
+      ""content"": ""P3 is cautious about P2's credibility.""
+    },
+    {
+      ""level"": 1,
+      ""player"": ""P4"",
+      ""content"": ""P4 is focused on testing new players.""
+    },
+    {
+      ""level"": 1,
+      ""player"": ""P5"",
+      ""content"": ""P5 is questioning P2's reaction.""
+    },
+    {
+      ""level"": 2,
+      ""player"": ""P2"",
+      ""content"": ""P2 is likely hiding guilt and trying to frame P1.""
+    },
+    {
+      ""level"": 2,
+      ""player"": ""P5"",
+      ""content"": ""P5 might be trying to create division among the group.""
+    }
+  ],
+  ""statement"": ""I believe the failed quest was due to a lack of trust and poor communication. We need to work together and test new players more carefully in the future."",
+  ""deduction"": []
+}",gold,,538,730,False,28.4
+G028,1,P1,,P2 P3,True,"{
+  ""abduction"": [
+    {
+      ""player"": ""P2"",
+      ""good_expl"": ""P2 played a pass and claims to be trustworthy, which aligns with Good behavior."",
+      ""evil_expl"": ""P2's statement about not knowing what happened could be a cover for being a spy trying to deflect suspicion."",
+      ""choice"": ""Good""
+    },
+    {
+      ""player"": ""P3"",
+      ""good_expl"": ""P3 advocates for investigating rather than moving on, which is consistent with a Good player trying to uncover the truth."",
+      ""evil_expl"": ""P3's suggestion to rotate players could be a way to avoid scrutiny or to manipulate the team composition."",
+      ""choice"": ""Good""
+    },
+    {
+      ""player"": ""P4"",
+      ""good_expl"": ""P4 suggests leaving P1 and P2 off the next team, which could be a logical step to avoid repeating the same mistake."",
+      ""evil_expl"": ""P4's suggestion might be a way to eliminate potential Good players or to manipulate the team for their own benefit."",
+      ""choice"": ""Good""
+    },
+    {
+      ""player"": ""P5"",
+      ""good_expl"": ""P5 acknowledges the uncertainty and the possibility of spies, which shows a rational and cautious approach."",
+      ""evil_expl"": ""P5's statement about the 50% chance could be an attempt to sow doubt or to manipulate the group's perception."",
+      ""choice"": ""Good""
+    }
+  ],
+  ""suspicion"": [
+    {
+      ""player"": ""P2"",
+      ""level"": ""Minimal"",
+      ""reason"": ""P2's statement about not knowing what happened could be a cover for being a spy.""
+    },
+    {
+      ""player"": ""P3"",
+      ""level"": ""Moderate"",
+      ""reason"": ""P3's suggestion to rotate players might be a way to avoid scrutiny or manipulate the team.""
+    },
+    {
+      ""player"": ""P4"",
+      ""level"": ""Moderate"",
+      ""reason"": ""P4's suggestion to leave P1 and P2 off the team could be a way to eliminate potential Good players.""
+    },
+    {
+      ""player"": ""P5"",
+      ""level"": ""Minimal"",
+      ""reason"": ""P5's statement about the 50% chance could be an attempt to sow doubt or manipulate the group.""
+    }
+  ],
+  ""depth"": 1,
+  ""beliefs"": [
+    {
+      ""level"": 1,
+      ""player"": ""P2"",
+      ""content"": ""P2's statement about not knowing what happened could be a cover for being a spy.""
+    },
+    {
+      ""level"": 1,
+      ""player"": ""P3"",
+      ""content"": ""P3's suggestion to rotate players might be a way to avoid scrutiny or manipulate the team.""
+    },
+    {
+      ""level"": 1,
+      ""player"": ""P4"",
+      ""content"": ""P4's suggestion to leave P1 and P2 off the team could be a way to eliminate potential Good players.""
+    },
+    {
+      ""level"": 1,
+      ""player"": ""P5"",
+      ""content"": ""P5's statement about the 50% chance could be an attempt to sow doubt or manipulate the group.""
+    }
+  ],
+  ""statement"": ""The mission failed, and we need to carefully analyze who might be responsible. I believe we should focus on understanding the dynamics of the team rather than just rotating players. Let's work together to uncover the truth."",
+  ""deduction"": []
+}",gold,,651,761,False,25.5

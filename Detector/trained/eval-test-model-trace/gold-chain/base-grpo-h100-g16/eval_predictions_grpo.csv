@@ -1,0 +1,47 @@
+game_id,round_id,role_id,predicted,ground_truth,parsed,output,chain_mode,chain_rounds,prompt_tokens,gen_tokens,hit_max_new_tokens,seconds
+G015,1,P1,P2 P3 P4 P5,P2 P4,True,"{
+  ""abduction"": [
+    {""player"":""P2"",""good_expl"":""P2 is reacting to the failed quest and blaming P1."",""evil_expl"":""P2 is using the failed quest to frame P1 and gain trust."",""choice"":""Evil""},
+    {""player"":""P3"",""good_expl"":""P3 is cautious and wants to avoid quick accusations."",""evil_expl"":""P3 is using uncertainty to avoid taking a position."",""choice"":""Evil""},
+    {""player"":""P4"",""good_expl"":""P4 is suggesting a more measured approach."",""evil_expl"":""P4 is avoiding responsibility and using the failed quest to stall."",""choice"":""Evil""},
+    {""player"":""P5"",""good_expl"":""P5 is questioning P2's strong reaction."",""evil_expl"":""P5 is using doubt to hide their own involvement."",""choice"":""Evil""}
+  ],
+  ""suspicion"": [
+    {""player"":""P2"",""level"":""Extreme"",""reason"":""P2 was on the failed 2-player quest with P1 and immediately blamed P1.""},
+    {""player"":""P3"",""level"":""Strong"",""reason"":""P3's caution is suspicious after a failed 2-player quest.""},
+    {""player"":""P4"",""level"":""Strong"",""reason"":""P4's suggestion to test new players is evasive after a failed 2-player quest.""},
+    {""player"":""P5"",""level"":""Strong"",""reason"":""P5 is using doubt to avoid committing to a position after a failed 2-player quest.""}
+  ],
+  ""depth"": 2,
+  ""beliefs"": [
+    {""level"":1,""player"":""P2"",""content"":""P2 is likely Evil because he was on the failed 2-player quest and immediately blamed P1.""},
+    {""level"":1,""player"":""P3"",""content"":""P3 is likely Evil because he used uncertainty to avoid taking a position.""},
+    {""level"":1,""player"":""P4"",""content"":""P4 is likely Evil because he used the failed quest to avoid responsibility.""},
+    {""level"":1,""player"":""P5"",""content"":""P5 is likely Evil because he used doubt to avoid committing to a position.""}
+  ],
+  ""statement"": ""The failed 2-player quest with P2 means P2 is Evil. I will not trust any of the other players and will push for testing."",
+  ""deduction"": [""P2"",""P3"",""P4"",""P5""]
+}",gold,,538,505,False,29.8
+G028,1,P1,P2 P3 P4 P5,P2 P3,True,"{
+  ""abduction"": [
+    {""player"":""P2"",""good_expl"":""P2 is Good and is being honest that the mission failed and that he played a pass."",""evil_expl"":""P2 is Evil and is using the failed mission to make himself look trustworthy."",""choice"":""Evil""},
+    {""player"":""P5"",""good_expl"":""P5 is Good and is correctly analyzing that the failed mission gives a 50% chance between P1 and P2."",""evil_expl"":""P5 is Evil and is using the failed mission to push a 50/50 split and avoid real investigation."",""choice"":""Evil""},
+    {""player"":""P4"",""good_expl"":""P4 is Good and is pushing to look at the rest of the players after the failed mission."",""evil_expl"":""P4 is Evil and is using the failed mission to push a rotation and avoid solving the mission."",""choice"":""Evil""},
+    {""player"":""P3"",""good_expl"":""P3 is Good and is pushing to solve the failed mission rather than just rotating players."",""evil_expl"":""P3 is Evil and is using the failed mission to push a rotation and avoid solving the mission."",""choice"":""Evil""}
+  ],
+  ""suspicion"": [
+    {""player"":""P2"",""level"":""Extreme"",""reason"":""P2 is on the failed 2-player team with me and is making himself look trustworthy after the mission failed.""},
+    {""player"":""P5"",""level"":""Extreme"",""reason"":""P5 is using the failed mission to push a 50/50 split and avoid solving the mission.""},
+    {""player"":""P4"",""level"":""Extreme"",""reason"":""P4 is using the failed mission to push a rotation and avoid solving the mission.""},
+    {""player"":""P3"",""level"":""Extreme"",""reason"":""P3 is using the failed mission to push a rotation and avoid solving the mission.""}
+  ],
+  ""depth"": 2,
+  ""beliefs"": [
+    {""level"":1,""player"":""P2"",""content"":""P2 is on the failed 2-player team with me and is making himself look trustworthy.""},
+    {""level"":1,""player"":""P5"",""content"":""P5 is using the failed mission to push a 50/50 split and avoid solving the mission.""},
+    {""level"":1,""player"":""P4"",""content"":""P4 is using the failed mission to push a rotation and avoid solving the mission.""},
+    {""level"":1,""player"":""P3"",""content"":""P3 is using the failed mission to push a rotation and avoid solving the mission.""}
+  ],
+  ""statement"": ""The failed 2-player mission means one of us is Evil. P2 is using the failed mission to make himself look trustworthy, P5 is pushing a 50/50 split, and P4 and P3 are both pushing to rotate players and avoid solving the mission. I believe all four are Evil."",
+  ""deduction"": [""P2"",""P5"",""P4"",""P3""]
+}",gold,,651,628,False,37.2

@@ -34,7 +34,8 @@
   <a href="#project-website"><b>Live Demo</b></a> ·
   <a href="#directory-structure"><b>Structure</b></a> ·
   <a href="#installation"><b>Installation</b></a> ·
-  <a href="#dataset-construction-pipeline"><b>Pipeline</b></a>
+  <a href="#dataset-construction-pipeline"><b>Pipeline</b></a> ·
+  <a href="#trained-detector"><b>Detector</b></a>
 </p>
 
 <p align="center">
@@ -52,7 +53,7 @@
 - **Layer 1, what is said:** every utterance carries one of 37 tactics. Rows of the matrix give the information strategy (IMT2 and philosophy of lying); columns give the social goal (IDT and TDT).
 - **Layer 2, why it is said:** each investigator turn has a gold reasoning trace with abductive hypotheses, suspicion levels, first- and second-order beliefs, and a final deduction.
 - **Built in six stages:** roles and public histories are fixed first, then dialogues and traces are generated and checked by a blind LLM judge, round by round.
-- **Useful for training:** a Qwen3-8B detector trained with SFT and then GRPO names both Evil players in 23 of 25 held-out games **(92%)**, matching the gold traces.
+- **Useful for training:** a Qwen3-8B detector trained with SFT and then GRPO names both Evil players in 18 of 25 held-out games **(72%)**, matching the strongest of four prompted frontier models.
 
 ---
 
@@ -100,6 +101,10 @@ Avalon-deception/
 │       ├── summarizer/                        # Round summaries
 │       ├── verified/                          # Verified dialogues & criteria scores
 │       └── reasoning/                         # ToM reasoning traces
+├── Detector/                                  # Qwen3-8B detector: training, evaluation, results
+│   ├── training/                              # one folder per run (4_ to 7_) and evaluation (8_ to 11_)
+│   ├── trained/                               # evaluation outputs and training logs
+│   └── results/                               # result workbooks and the scripts that build them
 ├── assets/                                    # README figures and notebook charts
 └── requirements-seed-generation.txt
 ```
@@ -162,6 +167,20 @@ S3_log-gen-summarizer.ipynb  →  generates AVCORP/Datasets/summarizer/summaries
 <br>
 <p align="center"><img src="assets/Avalon-setup.jpg" alt="Avalon game setup" width="90%"></p>
 </details>
+
+---
+
+## Trained Detector
+
+[`Detector/`](Detector/README.md) trains Qwen3-8B on the reasoning traces with SFT and then GRPO, and scores each stage on its own earlier traces.
+
+- **Runs:** trace or trace + tactic labels, original or revised rewards (runs 4 to 7, 8 runs in total).
+- **Evaluations:** 25 held-out AVCORP games, 20 human games from Avalon-NLU, and four prompted frontier models.
+
+<p align="center"><img src="Detector/Images/results.png" alt="Detector results on AVCORP and Avalon-NLU" width="100%"></p>
+
+> [!TIP]
+> Directory layout, run commands and reward functions: [`Detector/README.md`](Detector/README.md).
 
 ---
 

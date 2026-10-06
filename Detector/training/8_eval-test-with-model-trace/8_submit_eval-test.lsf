@@ -1,0 +1,44 @@
+#!/bin/bash
+# LSF version of 8_submit_eval-test.slurm, submitted by 8_submit_all_lsf.sh; RUN, STAGES, CHAIN, EXTRA come from the environment.
+#BSUB -q gpu
+#BSUB -m gpu_h100
+#BSUB -gpu "num=1:mode=exclusive_process:mps=no"
+#BSUB -n 8
+#BSUB -R "span[hosts=1] rusage[mem=32.00]"
+#BSUB -W 600
+
+source /usr/share/Modules/init/bash 2>/dev/null || true
+module load apptainer/1.4.2-1 2>/dev/null || module load apptainer 2>/dev/null || true
+
+set -euo pipefail
+
+: "${RUN:?RUN not set}" "${STAGES:?STAGES not set}" "${CHAIN:?CHAIN not set}"
+EXTRA=${EXTRA:-}
+WORK=${LS_SUBCWD:-$PWD}
+CONTAINER=/usr/local/apps/ood/images/jupyter-pytorch.sif
+
+echo "=== $(hostname) · $(date) ==="
+echo "LSB_JOBID=${LSB_JOBID:-unset}  HOSTS=${LSB_HOSTS:-unset}  GPUS=${CUDA_VISIBLE_DEVICES:-unset}"
+echo "RUN=$RUN  STAGES=$STAGES  CHAIN=$CHAIN  EXTRA=$EXTRA"
+
+[ -f "$WORK/8_eval_model_trace.py" ]      || { echo "FATAL: 8_eval_model_trace.py not in $WORK"; exit 1; }
+[ -f "$CONTAINER" ]                       || { echo "FATAL: container missing: $CONTAINER"; exit 1; }
+[ -d /share/mpsingh/fsaad/hf_cache/hub ]  || { echo "FATAL: Qwen3-8B not staged in HF cache"; exit 1; }
+command -v apptainer >/dev/null           || { echo "FATAL: apptainer not on PATH after module load"; exit 1; }
+nvidia-smi || echo "WARNING: nvidia-smi failed on host"
+
+cd "$WORK"
+ls /share/mpsingh/fsaad > /dev/null  # autofs: mount the path before binding it
+
+rc=0
+# shellcheck disable=SC2086
+apptainer exec --nv --bind /share/mpsingh/fsaad "$CONTAINER" \
+  python3 -u 8_eval_model_trace.py --run "$RUN" --stages "$STAGES" --chain "$CHAIN" $EXTRA || rc=$?
+
+if [ "$rc" -ne 0 ] && [ "$CHAIN" = "gold" ] && [ -s 8_lsf_dependents.txt ]; then
+  echo "smoke test failed (exit $rc): killing the dependent jobs $(tr '\n' ' ' < 8_lsf_dependents.txt)"
+  bkill $(cat 8_lsf_dependents.txt) || true
+fi
+
+echo "=== finished $(date) (exit $rc) ==="
+exit "$rc"
