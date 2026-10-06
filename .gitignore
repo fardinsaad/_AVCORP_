@@ -28,3 +28,6 @@ Thumbs.db
 *.key
 secrets/
 config/local.py
+
+# Office lock files (e.g. ~$results.xlsx while Excel has it open)
+~$*
