@@ -74,7 +74,7 @@ def stage_means(df, cols):
     df = df.assign(family=df.run.map(family), n_runs=1)
     order = {f: i for i, f in enumerate(["base (trace prompt)", "base (tactic prompt)", "run4", "run5", "run6", "run7"])}
     per = df.groupby(["prompt", "family", "stage"]).agg({**{c: "mean" for c in cols}, "n_runs": "sum"}).reset_index()
-    # the paper's SFT mean for run 5 leaves out run5_1 (see CAVEATS)
+    # SFT mean for run 5 withoout run5_1 (see CAVEATS)
     paired = df[(df.family == "run5") & (df.stage == "sft") & (df.run != "run5_1")]
     paired = paired.groupby(["prompt", "family", "stage"]).agg({**{c: "mean" for c in cols}, "n_runs": "sum"}).reset_index()
     paired["family"] = "run5 (without run5_1)"
